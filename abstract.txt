@@ -1,0 +1,8 @@
+Machine Learning, I CHOOSE YOU!
+
+Pokemon is a well known franchise that has had a significant cultural impact on the entire world. This is especially true for individuals who were born 
+in the 1990s through the early 2000s. Many fans will also recognize a game from the animated television program titled "Who's that Pokemon" that challenges 
+viewers to guess one of the numerous pokemon species within the pokemon universe from a given silhouette. This project aims to not only tell who that pokemon 
+is, but also secondary features like the pokemon's type, art style, feature design, and when it was released. The overall goal of the project is then to explore 
+advancements in machine learning algorithms and image recognition to classify and describe the photos of pokemon in multiple types of media: anime, card art, 
+video games, real-life, etc.
