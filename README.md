@@ -6,3 +6,6 @@ Machine Learning, I CHOOSE YOU!
 Jacob Medina
 Sullivan Smith
 Jayden Alonso-Estrada
+
+### Chrono Comments
+April 3: [Kaggle Link To Data](https://www.kaggle.com/code/echometerhhwl/who-s-that-pokemon-improved/input). Takes a while to download and unzip. gitignore file updated accordingly
