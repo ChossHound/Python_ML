@@ -1,3 +1,4 @@
 data/
 data.zip
 image_metadata.csv
+best_model_fold1.pth
