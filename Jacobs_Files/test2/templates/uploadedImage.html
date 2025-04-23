@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../static/style.css">
+        <title>Test2</title>
+    </head>
+    <body>
+        
+        {% if filename %}
+            <h3>Image uploaded:</h3>
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" style="max-width: 500px;">
+        {% endif %}
+
+        <h3>Prediction:</h3>
+        <div>Pokemon: {{ classification }}, Probability: {{ probability }}%</div>
+
+        <form action="/" method='get'>
+            <input type="submit" value="Back">
+        </form>
+    </body>
+</html>

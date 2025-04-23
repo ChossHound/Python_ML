@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Image Classifier</title>
+</head>
+<body>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <h1>Upload an image</h1>
+    <form action="/upload" method='post', enctype='multipart/form-data'>
+        <input type="file" name="image" accept="image/*">
+        <input type="submit", value="Upload">
+
+    </form>
+
+</body>
+</html>
