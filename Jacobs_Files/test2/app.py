@@ -4,15 +4,17 @@ from wtforms import Form, FileField, validators
 from PIL import Image
 import torch
 from torchvision import transforms, datasets
+import timm
 
 from preprocess import image_transform
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 FILLER_CLASSIFICATIONS = ("John Pokemon", 99.99)
+NUM_CLASSES = 149
 
 cur_dir = os.path.dirname(__file__)
-model = torch.load(os.path.join(cur_dir, 'model', 'best_model_fold1.pth'))
+model = timm.create_model('convnext_base', pretrained=True, num_classes=NUM_CLASSES)
 
 
 # class ImageForm(Form):
