@@ -7,10 +7,8 @@ from torch.nn.functional import softmax as softmax
 from torchvision import transforms, datasets
 import timm
 from models.deploy import load_and_transform_image, eval_transform, class_names
-
-
-
-# from preprocess import image_transform
+from models.data import compute_hash, image_exists_in_dataset, get_all_image_paths
+import pickle
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
@@ -23,9 +21,9 @@ model = timm.create_model('convnext_base', pretrained=True, num_classes=NUM_CLAS
 model.load_state_dict(torch.load('models/best_model_fold1.pth', map_location=torch.device('cpu')))
 model.eval()
 
+with open('image_hashes.pkl', 'rb') as file:
+    hashes = pickle.load(file)
 
-# class ImageForm(Form):
-#     image = FileField('image')
 
 def classify(image_path):
     # transform image so model can take it
@@ -36,7 +34,6 @@ def classify(image_path):
         y = output.argmax(dim=1).item()
         pred_class_proba = probabilities[0][y].item()
     return y, pred_class_proba
-    
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -50,11 +47,15 @@ def upload():
         image.save(filepath)
         filename = image.filename
         y, proba = classify(filepath)
+        in_train_set = image_exists_in_dataset(filepath, hashes)
+        predicted_img_path = 'reference/' + class_names[y] + '.jpg'
         # return render_template('uploadedImage.html', filename=filename)
         return render_template('uploadedImage.html', 
                                filename=filename,
                                classification=class_names[y],
-                               probability=round(proba * 100, 2))
+                               probability=round(proba * 100, 2),
+                               in_set= in_train_set,
+                               reference_filename = predicted_img_path)
     # else:
         return render_template('index.html', error="No file selected")
     
