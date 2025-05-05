@@ -56,7 +56,7 @@ def upload():
                                probability=round(proba * 100, 2),
                                in_set= in_train_set,
                                reference_filename = predicted_img_path)
-    # else:
+    else:
         return render_template('index.html', error="No file selected")
     
     

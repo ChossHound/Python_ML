@@ -1,3 +1,6 @@
 data/
 data.zip
 *.pyc
+*.ipynb
+Jacobs_Files/test2/static/reference/
+Jacobs_Files/test2/static/uploads/
