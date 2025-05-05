@@ -3,18 +3,43 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../static/style.css">
-        <title>Test2</title>
+        <title>Pokemon Classifier</title>
+        <style>
+            .image-row {
+                display: flex;
+                justify-content: left;
+                gap: 40px;
+            }
+            .image-box {
+                text-align: cleft;
+            }
+            img {
+                max-width: 500px;
+                height: auto;
+            }
+        </style>
     </head>
     <body>
-        
-        {% if filename %}
-            <h3>Image uploaded:</h3>
-            <img src="{{ url_for('static', filename='uploads/' + filename) }}" style="max-width: 500px;">
-        {% endif %}
+        <div class="image-row">
+            <div class="image-box">
+                {% if filename %}
+                    <h3>Uploaded Image</h3>
+                    <img src="{{ url_for('static', filename='uploads/' + filename) }}" style="max-width: 500px;">
+                {% endif %}
+            </div>
+            <div class="image-box">
+                {% if reference_filename %}
+                    <h3>Reference Image for {{ classification }}</h3>
+                    <img src="{{ url_for('static', filename=reference_filename) }}" style="max-width: 500px;">
+                {% endif %}
+            </div>
+        </div>
 
+    
         <h3>Prediction:</h3>
         <div>Pokemon: {{ classification }}, Probability: {{ probability }}%</div>
-
+        <div>In Training Set: {{ in_set }}</div>
+        
         <form action="/" method='get'>
             <input type="submit" value="Back">
         </form>

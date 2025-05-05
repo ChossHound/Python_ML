@@ -1,6 +1,8 @@
 data/
 data.zip
-*.pyc
-*.ipynb
-Jacobs_Files/test2/static/reference/
-Jacobs_Files/test2/static/uploads/
+Jacobs_Files/test2/static/reference
+Jacobs_Files/test2/static/uploads
+Jacobs_Files/test2/__pycache__
+*.pyc 
+
+Jacobs_Files/test2/models/best_model_fold1.pth
