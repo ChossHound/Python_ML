@@ -12,7 +12,7 @@ April 3: [Kaggle Link To Data](https://www.kaggle.com/code/echometerhhwl/who-s-t
 
 ### Instructions for running the app locally:
 To ensure that you have all of the necessary requirements to run the app, you will want to create a new conda environment from the 'pyML.yml' file.
-Once this is done you will need to download a 300Mb .pth file in order to run the image classifier. This can be found at [Website here]
+Once this is done you will need to download a 300Mb .pth file in order to run the image classifier. This can be found at [[Website here](https://drive.google.com/file/d/1jbtCxdDw7YZHVrTwmaona2r9ScCpnXm-/view?usp=sharing)]
 once downloaded, you will want to name the file 'best_model_fold1.pth' and place inside 'Jacobs_Files/test2/models' directory.
 Once the .pth file is there you can run the command `flask run` inside of the 'Jacobs_files/test2' directory and launch a development web application on 127.0.0.1:5000
 
